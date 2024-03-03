@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://194.152.37.7:5432/swift_spring_application
+    username: swift_dev
+    password: swift
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+
+server:
+  port: 4446
+
+
