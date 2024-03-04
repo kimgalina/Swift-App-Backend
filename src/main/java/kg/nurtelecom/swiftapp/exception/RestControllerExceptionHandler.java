@@ -24,14 +24,14 @@ public class RestControllerExceptionHandler {
         return new ResponseMessage<>(errors, ResultCode.FAIL);
     }
 
-//    @ExceptionHandler(Exception.class)
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public ResponseMessage<?> handleException(Exception e) {
-//        return new ResponseMessage<>(
-//                e.getMessage(),
-//                ResultCode.EXCEPTION
-//        );
-//    }
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseMessage<?> handleException(Exception e) {
+        return new ResponseMessage<>(
+                e.getMessage(),
+                ResultCode.EXCEPTION
+        );
+    }
 
 
 }

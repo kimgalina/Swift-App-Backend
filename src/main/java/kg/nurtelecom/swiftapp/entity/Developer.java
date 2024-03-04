@@ -3,6 +3,7 @@ package kg.nurtelecom.swiftapp.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "developers")
 public class Developer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

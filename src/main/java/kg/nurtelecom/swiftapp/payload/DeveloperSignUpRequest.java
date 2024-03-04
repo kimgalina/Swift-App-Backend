@@ -1,13 +1,16 @@
 package kg.nurtelecom.swiftapp.payload;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public record DeveloperSignUpRequest(
+        @JsonProperty("first_name")
         @NotBlank(message = "Введите имя ")
         @Size(max = 50, message = "Имя '${validatedValue}' не может содержать большее чем {max} количество символов")
         String firstName,
+        @JsonProperty("last_name")
         @NotBlank(message = "Введите фамилию ")
         @Size(max = 50, message = "Фамилия  '${validatedValue}' не может содержать большее чем {max} количество символов")
         String lastName,
