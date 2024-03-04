@@ -1,6 +1,6 @@
 package kg.nurtelecom.swiftapp.controller;
 
-import kg.nurtelecom.swiftapp.payload.LoginFormResponse;
+import kg.nurtelecom.swiftapp.payload.DeveloperFormResponse;
 import kg.nurtelecom.swiftapp.util.ResponseMessage;
 import kg.nurtelecom.swiftapp.util.ResultCode;
 import org.springframework.http.HttpStatus;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/login")
-public class LoginJsonController {
+@RequestMapping("/api/developer")
+public class DeveloperJsonController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public ResponseMessage<LoginFormResponse> getLoginForm() {
+    public ResponseMessage<DeveloperFormResponse> getDeveloperForm() {
         return new ResponseMessage<>(
-                new LoginFormResponse("username","password","Войти"),
+                new DeveloperFormResponse("Имя", "Фамилия", "Должность", "Тел", "email"),
                 ResultCode.SUCCESS
         );
     }
