@@ -5,6 +5,7 @@ import kg.nurtelecom.swiftapp.payload.UserSignInRequest;
 import kg.nurtelecom.swiftapp.payload.UserSignInResponse;
 import kg.nurtelecom.swiftapp.service.AuthService;
 import kg.nurtelecom.swiftapp.util.ResponseMessage;
+import kg.nurtelecom.swiftapp.util.ResultCode;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,10 +17,13 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping
+    @PostMapping("/sign-in")
     public ResponseMessage<UserSignInResponse> signIn( @Valid @RequestBody UserSignInRequest userRequest) {
-        // логика security
-        return null;
+
+        return new ResponseMessage<>(
+                authService.signIn(userRequest),
+                ResultCode.SUCCESS
+        );
     }
 
 }
