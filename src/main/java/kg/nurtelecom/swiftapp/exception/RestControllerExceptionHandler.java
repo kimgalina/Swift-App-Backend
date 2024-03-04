@@ -1,5 +1,7 @@
 package kg.nurtelecom.swiftapp.exception;
 
+
+import io.jsonwebtoken.ExpiredJwtException;
 import kg.nurtelecom.swiftapp.util.ResponseMessage;
 import kg.nurtelecom.swiftapp.util.ResultCode;
 import org.springframework.http.HttpStatus;
@@ -24,14 +26,32 @@ public class RestControllerExceptionHandler {
         return new ResponseMessage<>(errors, ResultCode.FAIL);
     }
 
-    @ExceptionHandler(Exception.class)
+
+    @ExceptionHandler(ExpiredJwtException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ResponseMessage<?> handleException(Exception e) {
+    public ResponseMessage<?> handleExpiredJwtException(ExpiredJwtException exc) {
         return new ResponseMessage<>(
-                e.getMessage(),
+                exc.getMessage(),
                 ResultCode.EXCEPTION
         );
     }
 
+    @ExceptionHandler(FileException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseMessage<?> handleFileException(FileException exc) {
+        return new ResponseMessage<>(
+                exc.getMessage(),
+                ResultCode.EXCEPTION
+        );
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseMessage<?> handleNotFoundException(NotFoundException exc) {
+        return new ResponseMessage<>(
+                exc.getMessage(),
+                ResultCode.EXCEPTION
+        );
+    }
 
 }
