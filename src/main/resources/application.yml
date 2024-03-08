@@ -16,5 +16,5 @@ server:
 
 app:
   jwtSecret: w12mJKH2rjS0TVzHu8Vr4tKJqUT9ZotAYNh2NlW0xSIxzrvN0bEVZclvfp73P1sR
-  jwtExpiration: 1000 * 60 * 24
+  jwtExpiration: 86400000
 
