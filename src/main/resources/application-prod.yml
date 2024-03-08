@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://143.110.182.202:5432/swift_spring_application
+    url: jdbc:postgresql://localhost:5432/swift_spring_application
     username: swift_dev
     password: swift
     driver-class-name: org.postgresql.Driver
@@ -17,4 +17,3 @@ server:
 app:
   jwtSecret: w12mJKH2rjS0TVzHu8Vr4tKJqUT9ZotAYNh2NlW0xSIxzrvN0bEVZclvfp73P1sR
   jwtExpiration: 1000 * 60 * 24
-
