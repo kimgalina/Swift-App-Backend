@@ -53,5 +53,13 @@ public class RestControllerExceptionHandler {
                 ResultCode.EXCEPTION
         );
     }
+    @ExceptionHandler(AlreadyExistException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseMessage<?> handleAlreadyExist(AlreadyExistException exc) {
+        return new ResponseMessage<>(
+                exc.getMessage(),
+                ResultCode.EXCEPTION
+        );
+    }
 
 }

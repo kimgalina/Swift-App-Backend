@@ -1,6 +1,7 @@
 package kg.nurtelecom.swiftapp.service.imlpementations;
 
 import kg.nurtelecom.swiftapp.entity.Developer;
+import kg.nurtelecom.swiftapp.exception.AlreadyExistException;
 import kg.nurtelecom.swiftapp.mapper.DeveloperMapper;
 import kg.nurtelecom.swiftapp.payload.DeveloperSignUpRequest;
 import kg.nurtelecom.swiftapp.payload.DeveloperSignUpResponse;
@@ -24,6 +25,9 @@ public class DeveloperServiceImpl implements DeveloperService {
     @Transactional
     @Override
     public ResponseMessage<DeveloperSignUpResponse> signUp(DeveloperSignUpRequest developerRequest) {
+        if(developerRepository.findByEmail(developerRequest.email()).isPresent()) {
+            throw new AlreadyExistException("Разработчик с таким email адресом уже существует");
+        }
         Developer developerEntity = developerMapper.toEntity(developerRequest);
         developerRepository.save(developerEntity);
         return new ResponseMessage<>(developerMapper.toResponse(developerEntity), ResultCode.SUCCESS);
