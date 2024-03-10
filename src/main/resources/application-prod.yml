@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/swift_spring_application
+    url: jdbc:mysql://143.110.182.202:3306/swift_spring_application
     username: swift_dev
     password: swift
-    driver-class-name: org.postgresql.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
