@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добро пожаловать!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        .user-info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Добро пожаловать!</h1>
+    <p>Ваш аккаунт успешно создан.</p>
+    <img th:src="@{/api/images/{id}(id=${savedDeveloper.id()})}" alt="User Avatar">
+    <div class="user-info">
+        <p><strong>Имя: </strong><span th:text="${savedDeveloper.firstName()}"></span></p>
+        <p><strong>Фамилия: </strong><span th:text="${savedDeveloper.lastName()}"></span></p>
+        <p><strong>Должность: </strong><span th:text="${savedDeveloper.position()}"></span></p>
+        <p><strong>Тел: </strong><span th:text="${savedDeveloper.phone()}"></span></p>
+        <p><strong>Email: </strong><span th:text="${savedDeveloper.email()}"></span></p>
+    </div>
+</div>
+</body>
+</html>

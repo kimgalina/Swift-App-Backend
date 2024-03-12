@@ -44,7 +44,8 @@ public class ImageServiceImpl implements ImageService {
         try {
             String fileName = "image_" + UUID.randomUUID() + "." + getFileExtension(image);
 
-            Path uploadPath = Paths.get("/home/swift_spring_application/images/");
+//            Path uploadPath = Paths.get("/home/swift_spring_application/images/");
+            Path uploadPath = Paths.get("C:/Users/Galina/Desktop/TestFront/");
 
             File destFile = new File(uploadPath.toFile(), fileName);
             Thumbnails.of(image.getInputStream())
