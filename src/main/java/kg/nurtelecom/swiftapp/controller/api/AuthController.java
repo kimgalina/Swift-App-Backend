@@ -1,4 +1,4 @@
-package kg.nurtelecom.swiftapp.controller;
+package kg.nurtelecom.swiftapp.controller.api;
 
 import jakarta.validation.Valid;
 import kg.nurtelecom.swiftapp.payload.UserSignInRequest;

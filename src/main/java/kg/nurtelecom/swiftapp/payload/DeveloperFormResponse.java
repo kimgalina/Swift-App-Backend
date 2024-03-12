@@ -6,6 +6,7 @@ public record DeveloperFormResponse(
         String last_name,
         String position,
         String phone,
-        String email
+        String email,
+        String button
 ) {
 }

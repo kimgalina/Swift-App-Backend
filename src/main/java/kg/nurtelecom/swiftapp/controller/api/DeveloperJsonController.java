@@ -1,4 +1,4 @@
-package kg.nurtelecom.swiftapp.controller;
+package kg.nurtelecom.swiftapp.controller.api;
 
 import kg.nurtelecom.swiftapp.payload.DeveloperFormResponse;
 import kg.nurtelecom.swiftapp.util.ResponseMessage;
@@ -17,7 +17,7 @@ public class DeveloperJsonController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseMessage<DeveloperFormResponse> getDeveloperForm() {
         return new ResponseMessage<>(
-                new DeveloperFormResponse("Имя", "Фамилия", "Должность", "Тел", "email"),
+                new DeveloperFormResponse("Имя", "Фамилия", "Должность", "Тел", "Email", "Зарегистрироваться"),
                 ResultCode.SUCCESS
         );
     }

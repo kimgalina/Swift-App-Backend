@@ -1,4 +1,4 @@
-package kg.nurtelecom.swiftapp.controller;
+package kg.nurtelecom.swiftapp.controller.api;
 
 import kg.nurtelecom.swiftapp.util.ResponseMessage;
 import kg.nurtelecom.swiftapp.util.ResultCode;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class HelloController {
 
-    @GetMapping
+    @GetMapping("/hello")
     @ResponseStatus(HttpStatus.OK)
     public ResponseMessage<String> sayHello() {
         return new ResponseMessage<>(

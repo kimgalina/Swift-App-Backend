@@ -1,4 +1,4 @@
-package kg.nurtelecom.swiftapp.controller;
+package kg.nurtelecom.swiftapp.controller.api;
 
 import kg.nurtelecom.swiftapp.service.ImageService;
 import kg.nurtelecom.swiftapp.util.ResponseMessage;

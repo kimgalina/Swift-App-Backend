@@ -1,4 +1,4 @@
-package kg.nurtelecom.swiftapp.controller;
+package kg.nurtelecom.swiftapp.controller.api;
 
 import jakarta.validation.Valid;
 import kg.nurtelecom.swiftapp.payload.DeveloperSignUpRequest;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/developers")
-public class DeveloperController {
+public class gi DeveloperController {
     private final DeveloperService developerService;
 
     public DeveloperController(DeveloperService developerService) {
