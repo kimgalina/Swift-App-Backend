@@ -53,9 +53,10 @@ public class DeveloperServiceImpl implements DeveloperService {
         Developer developerEntity = developerRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Разработчик с таким id не найден"));
         Developer developer = developerMapper.toEntityFromDeveloperUpdateRequest(developerRequest);
-        developerEntity.setId(developer.getId());
-        developerRepository.save(developerEntity);
-        return developerMapper.toDeveloperResponse(developerEntity);
+        developer.setId(developerEntity.getId());
+        developer.setEmail(developerEntity.getEmail());
+        developerRepository.save(developer);
+        return developerMapper.toDeveloperResponse(developer);
     }
 
     @Override
