@@ -3,6 +3,7 @@ package kg.nurtelecom.swiftapp.config;
 import kg.nurtelecom.swiftapp.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -37,13 +38,16 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
                         .requestMatchers(
                                 "/auth/login",
                                 "/auth/sign-in",
                                 "/api/login",
                                 "/api/hello",
-                                "/api/auth/sign-in"
-                        ).permitAll()
+                                "/api/auth/sign-in",
+                                "/api/users/{id}"
+                        )
+                        .permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form

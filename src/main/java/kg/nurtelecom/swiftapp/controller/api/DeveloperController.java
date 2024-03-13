@@ -1,8 +1,10 @@
 package kg.nurtelecom.swiftapp.controller.api;
 
 import jakarta.validation.Valid;
+import kg.nurtelecom.swiftapp.payload.DeveloperResponse;
 import kg.nurtelecom.swiftapp.payload.DeveloperSignUpRequest;
 import kg.nurtelecom.swiftapp.payload.DeveloperSignUpResponse;
+import kg.nurtelecom.swiftapp.payload.DeveloperUpdateRequest;
 import kg.nurtelecom.swiftapp.service.DeveloperService;
 import kg.nurtelecom.swiftapp.util.ResponseMessage;
 import kg.nurtelecom.swiftapp.util.ResultCode;
@@ -18,6 +20,15 @@ public class DeveloperController {
         this.developerService = developerService;
     }
 
+    @GetMapping("/{id}")
+    public ResponseMessage<DeveloperResponse> getDeveloper(@PathVariable("id") Long devId) {
+        return new ResponseMessage<>(
+                developerService.getDeveloper(devId),
+                ResultCode.SUCCESS
+        );
+    }
+
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseMessage<DeveloperSignUpResponse> signUp (@Valid @RequestBody DeveloperSignUpRequest developerRequest) {
@@ -25,5 +36,19 @@ public class DeveloperController {
                 developerService.signUp(developerRequest),
                 ResultCode.SUCCESS
         );
+    }
+
+    @PutMapping("/{id}")
+    public ResponseMessage<DeveloperResponse> updateDeveloper(@PathVariable("id") Long developerId,
+                                                              @RequestBody @Valid DeveloperUpdateRequest updatedDeveloper) {
+        return new ResponseMessage<>(
+                developerService.updateDeveloper(developerId, updatedDeveloper),
+                ResultCode.SUCCESS
+        );
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseMessage<Void> deleteDeveloper(@PathVariable("id") Long id) {
+       return  developerService.deleteDeveloper(id);
     }
 }

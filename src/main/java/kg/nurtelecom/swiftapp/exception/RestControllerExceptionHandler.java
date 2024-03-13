@@ -61,5 +61,13 @@ public class RestControllerExceptionHandler {
                 ResultCode.EXCEPTION
         );
     }
+    @ExceptionHandler(UserRegistrationException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseMessage<?> handleUserRegistrationException(UserRegistrationException exc) {
+        return new ResponseMessage<>(
+                exc.getMessage(),
+                ResultCode.EXCEPTION
+        );
+    }
 
 }
